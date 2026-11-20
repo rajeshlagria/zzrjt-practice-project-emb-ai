@@ -2,11 +2,13 @@
     analysis to be executed over the Flask channel and deployed on
     localhost:5000.
 '''
+
+from flask import Flask, render_template, request
 # Import Flask, render_template, request from the flask pramework package : TODO
 # Import the sentiment_analyzer function from the package created: TODO
 
 #Initiate the flask app : TODO
-
+app = Flask(__name__)
 @app.route("/sentimentAnalyzer")
 def sent_analyzer():
     ''' This code receives the text from the HTML interface and 
