@@ -16,7 +16,10 @@ def sent_analyzer():
     '''
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
-    return response
+    res = f"anger: {response['anger']}, disgust: {response['disgust']}, fear: {response['fear']}, joy: {response['joy']}, sadness: {response['sadness']}. The dominant emotion is {response['dominant_emotion']}"
+    if response['dominant_emotion'] is None:
+        return 'Invalid text! Please try again!.'
+    return res
 
 @app.route("/")
 def render_index_page():
